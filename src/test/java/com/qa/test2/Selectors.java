@@ -248,6 +248,8 @@ public class Selectors {
 		List<WebElement> rowCount = driver.findElements(watchlistTable);
 		
 		for (int i=1; i<=rowCount.size(); i++) {
+			WebDriverWait wait2 = new WebDriverWait(driver, timeoutInSeconds);
+			wait2.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div/div/div[2]/div/div/div[2]/table/tbody/tr["+i+"]/td[2]/p")));
 
 			// get values of id, price and volume
 			String id = driver.findElement(By.xpath("/html/body/div/div/div[2]/div/div/div[2]/table/tbody/tr["+i+"]/td[2]/p")).getText();
