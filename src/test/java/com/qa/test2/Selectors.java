@@ -61,12 +61,12 @@ public class Selectors {
 	}
 	
 	/** open page and maximize it **/
-	public void openPage() {
+	public void openPage() throws InterruptedException {
 		driver.get("https://coinmarketcap.com/");
 		driver.manage().window().maximize();
 		System.out.println("Page is opened and maximized");
 		driver.navigate().refresh();
-		
+		Thread.sleep(2000);
 		WebDriverWait waitLogin = new WebDriverWait(driver, timeoutInSeconds);
 		waitLogin.until(ExpectedConditions.visibilityOfElementLocated(logIn));
 		

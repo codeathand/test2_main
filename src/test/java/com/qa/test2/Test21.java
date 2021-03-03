@@ -15,7 +15,7 @@ public class Test21 {
 	Selectors selectors = new Selectors(driver);
 	
 	@Given("Load Chrome driver and open page")
-	public void load_driver() {
+	public void load_driver() throws InterruptedException {
 		selectors.loadDriver();
 		selectors.openPage();
 	}
