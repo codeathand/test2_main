@@ -186,6 +186,8 @@ public class Selectors {
 		// enter volume range and submit
 		driver.findElement(volumeFrom).sendKeys("1");
 		driver.findElement(volumeTo).sendKeys("45000");
+		WebDriverWait wait1 = new WebDriverWait(driver, timeoutInSeconds);
+		wait1.until(ExpectedConditions.elementToBeClickable(applyVolume));
 		driver.findElement(applyVolume).click();
 		Thread.sleep(1000);
 		// validate that filtered table has less than 5 rows
