@@ -47,5 +47,6 @@ public class Test22 {
 	public void validate_watchlist() throws InterruptedException {
 	    System.out.println("Verify that filtered items are in the Watchlis");
 	    selectors.openWatchlist();
+	    selectors.deselectWatchList();
 	}
 }

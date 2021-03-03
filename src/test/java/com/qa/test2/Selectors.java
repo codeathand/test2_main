@@ -16,7 +16,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class Selectors {
 	
 	/** Timeout for waiting element **/
-	int timeoutInSeconds = 3;
+	int timeoutInSeconds = 5;
 	
 	protected static WebDriver driver;
 	
@@ -272,5 +272,25 @@ public class Selectors {
 		}
 		
 	}
-	
+
+	public void deselectWatchList() throws InterruptedException {
+		// get count of filtered rows
+		List<WebElement> rowCount = driver.findElements(watchlistTable);
+		System.out.println("Num rows watchlist table filtered: " + rowCount.size());
+
+		// check all filtered items for adding to the watchlist by clicking the star
+		for (int i=1; i<=rowCount.size(); i++) {
+			if (i < rowCount.size()) {
+//				WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
+//				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='__next']/div/div[2]/div/div/div[2]/table/tbody/tr["+i+"]/td[1]/span/span")));
+				driver.findElement(By.xpath("//*[@id='__next']/div/div[2]/div/div/div[2]/table/tbody/tr["+i+"]/td[1]/span/span")).click();
+				Thread.sleep(2000);
+			} else {
+//				WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
+//				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='__next']/div/div[2]/div/div/div[2]/table/tbody/tr/td[1]/span/span")));
+				driver.findElement(By.xpath("//*[@id='__next']/div/div[2]/div/div/div[2]/table/tbody/tr/td[1]/span/span")).click();
+				Thread.sleep(2000);
+			}
+		}
+	}
 }
