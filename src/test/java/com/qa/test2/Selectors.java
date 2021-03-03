@@ -212,7 +212,7 @@ public class Selectors {
 		System.out.println(watchlistItems);
 
 		WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(addToWatchList));
+		wait.until(ExpectedConditions.elementToBeClickable(addToWatchList));
 		// when click on the star to add to watch list, check whether is modal window is displayed
 		driver.findElement(addToWatchList).click();
 		WebDriverWait wait1 = new WebDriverWait(driver, timeoutInSeconds);
