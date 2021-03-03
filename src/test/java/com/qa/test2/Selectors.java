@@ -189,8 +189,9 @@ public class Selectors {
 		driver.findElement(volumeTo).sendKeys("45000");
 		WebDriverWait wait1 = new WebDriverWait(driver, timeoutInSeconds);
 		wait1.until(ExpectedConditions.elementToBeClickable(applyVolume));
+		Thread.sleep(2000);
 		driver.findElement(applyVolume).click();
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		// validate that filtered table has less than 5 rows
 		List<WebElement> rowCount = driver.findElements(table);
 		System.out.println("Num rows: " + rowCount.size());
