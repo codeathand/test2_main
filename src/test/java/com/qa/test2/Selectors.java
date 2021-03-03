@@ -29,7 +29,7 @@ public class Selectors {
 	private By table = By.xpath("//table[contains(@class, 'cmc-table')]/tbody/tr[not(contains(@class, 'fENxkl'))]");
 	
 //	private By logIn = By.xpath("//button[contains(text(), 'Log In')]");
-	private By logIn = By.xpath("/html/body/div/div/div[1]/div[1]/div[2]/a[2]/button");
+	private By logIn = By.xpath("//*[@id=\"__next\"]/div/div[1]/div[1]/div[2]/a[2]/button");
 	private By email = By.xpath("//*[@id=\"__next\"]/main/form/div[2]/input");
 	private By password = By.xpath("//*[@id=\"__next\"]/main/form/div[5]/input");
 	private By submitCredentials = By.xpath("//*[@id=\"__next\"]/main/form/button");
@@ -68,8 +68,8 @@ public class Selectors {
 		System.out.println("Page is opened and maximized");
 		driver.navigate().refresh();
 		Thread.sleep(3000);
-//		WebDriverWait waitLogin = new WebDriverWait(driver, timeoutInSeconds);
-//		waitLogin.until(ExpectedConditions.visibilityOfElementLocated(logIn));
+		WebDriverWait waitLogin = new WebDriverWait(driver, timeoutInSeconds);
+		waitLogin.until(ExpectedConditions.elementToBeClickable(logIn));
 		
 		driver.findElement(logIn).click();
 		
