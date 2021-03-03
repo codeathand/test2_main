@@ -65,10 +65,10 @@ public class Selectors {
 		driver.get("https://coinmarketcap.com/");
 		driver.manage().window().maximize();
 		System.out.println("Page is opened and maximized");
-//		driver.navigate().refresh();
+		driver.navigate().refresh();
 		Thread.sleep(3000);
-		WebDriverWait waitLogin = new WebDriverWait(driver, timeoutInSeconds);
-		waitLogin.until(ExpectedConditions.visibilityOfElementLocated(logIn));
+//		WebDriverWait waitLogin = new WebDriverWait(driver, timeoutInSeconds);
+//		waitLogin.until(ExpectedConditions.visibilityOfElementLocated(logIn));
 		
 		driver.findElement(logIn).click();
 		
