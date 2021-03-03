@@ -150,6 +150,8 @@ public class Selectors {
 		// enter price ranges and submit
 		driver.findElement(priceFrom).sendKeys("10000");
 		driver.findElement(priceTo).sendKeys("40000");
+		WebDriverWait wait1 = new WebDriverWait(driver, timeoutInSeconds);
+		wait1.until(ExpectedConditions.elementToBeClickable(applyPrice));
 		driver.findElement(applyPrice).click();
 		Thread.sleep(1000);
 		// validate that filtered table has less than 10 rows
