@@ -28,7 +28,8 @@ public class Selectors {
 	private By showRows = By.className("table-control-page-sizer");
 	private By table = By.xpath("//table[contains(@class, 'cmc-table')]/tbody/tr[not(contains(@class, 'fENxkl'))]");
 	
-	private By logIn = By.xpath("//button[contains(text(), 'Log In')]");
+//	private By logIn = By.xpath("//button[contains(text(), 'Log In')]");
+	private By logIn = By.xpath("//*[@id=\"__next\"]/div/div[1]/div[1]/div[2]/a[2]/button");
 	private By email = By.xpath("//*[@id=\"__next\"]/main/form/div[2]/input");
 	private By password = By.xpath("//*[@id=\"__next\"]/main/form/div[5]/input");
 	private By submitCredentials = By.xpath("//*[@id=\"__next\"]/main/form/button");
