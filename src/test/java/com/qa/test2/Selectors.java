@@ -64,15 +64,17 @@ public class Selectors {
 	/** open page and maximize it **/
 	public void openPage() throws InterruptedException {
 		driver.get("https://coinmarketcap.com/");
+		String currentURL = driver.getCurrentUrl();
+		System.out.println(currentURL);
 		driver.manage().window().maximize();
 		System.out.println("Page is opened and maximized");
-		driver.navigate().refresh();
-		Thread.sleep(1000);
-		driver.navigate().refresh();
-		WebDriverWait waitLogin = new WebDriverWait(driver, timeoutInSeconds);
-		waitLogin.until(ExpectedConditions.elementToBeClickable(logIn));
-		
-		driver.findElement(logIn).click();
+//		driver.navigate().refresh();
+		driver.navigate().to("https://accounts.coinmarketcap.com/login");
+
+//		WebDriverWait waitLogin = new WebDriverWait(driver, timeoutInSeconds);
+//		waitLogin.until(ExpectedConditions.elementToBeClickable(logIn));
+//
+//		driver.findElement(logIn).click();
 		
 		WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(email));
@@ -283,8 +285,8 @@ public class Selectors {
 		// check all filtered items for adding to the watchlist by clicking the star
 		for (int i=1; i<=rowCount.size(); i++) {
 			if (i < rowCount.size()) {
-//				WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
-//				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='__next']/div/div[2]/div/div/div[2]/table/tbody/tr["+i+"]/td[1]/span/span")));
+				WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='__next']/div/div[2]/div/div/div[2]/table/tbody/tr["+i+"]/td[1]/span/span")));
 				driver.findElement(By.xpath("//*[@id='__next']/div/div[2]/div/div/div[2]/table/tbody/tr["+i+"]/td[1]/span/span")).click();
 				Thread.sleep(2000);
 			} else {
