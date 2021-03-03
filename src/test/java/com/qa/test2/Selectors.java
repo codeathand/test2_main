@@ -67,7 +67,8 @@ public class Selectors {
 		driver.manage().window().maximize();
 		System.out.println("Page is opened and maximized");
 		driver.navigate().refresh();
-		Thread.sleep(3000);
+		Thread.sleep(1000);
+		driver.navigate().refresh();
 		WebDriverWait waitLogin = new WebDriverWait(driver, timeoutInSeconds);
 		waitLogin.until(ExpectedConditions.elementToBeClickable(logIn));
 		
