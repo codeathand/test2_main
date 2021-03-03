@@ -224,8 +224,8 @@ public class Selectors {
 			driver.findElement(addToWatchList).click();
 		}
 
-		WebDriverWait wait1 = new WebDriverWait(driver, timeoutInSeconds);
-		wait1.until(ExpectedConditions.visibilityOfElementLocated(bannerBottomClose));
+		WebDriverWait wait2 = new WebDriverWait(driver, timeoutInSeconds);
+		wait2.until(ExpectedConditions.visibilityOfElementLocated(bannerBottomClose));
 
 		if (driver.findElement(bannerBottomClose).isDisplayed()) {
 			driver.findElement(bannerBottomClose).click();
