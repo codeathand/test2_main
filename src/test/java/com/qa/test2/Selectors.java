@@ -229,10 +229,10 @@ public class Selectors {
 		Actions actions = new Actions(driver);
 		actions.moveToElement(driver.findElement(addToWatchList)).click().build().perform();
 //		driver.findElement(addToWatchList).click();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 
 		WebDriverWait wait1 = new WebDriverWait(driver, timeoutInSeconds);
-		wait1.until(ExpectedConditions.visibilityOfElementLocated(checkItOut));
+		wait1.until(ExpectedConditions.elementToBeClickable(checkItOut));
 		
 		// if modal window is displayed, click on the button in the window
 		if (driver.findElement(checkItOut).isDisplayed()) {
