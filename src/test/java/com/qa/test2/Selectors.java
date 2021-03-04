@@ -1,6 +1,7 @@
 package com.qa.test2;
 
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
 import java.util.ArrayList;
@@ -225,7 +226,9 @@ public class Selectors {
 		// when click on the star to add to watch list, check whether is modal window is displayed
 //		JavascriptExecutor executor = (JavascriptExecutor) driver;
 //		executor.executeScript("arguments[0].click();", driver.findElement(addToWatchList));
-		driver.findElement(addToWatchList).click();
+		Actions actions = new Actions(driver);
+		actions.moveToElement(driver.findElement(addToWatchList)).click().build().perform();
+//		driver.findElement(addToWatchList).click();
 		Thread.sleep(2000);
 
 		WebDriverWait wait1 = new WebDriverWait(driver, timeoutInSeconds);
