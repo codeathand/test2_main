@@ -246,12 +246,11 @@ public class Selectors {
 
 		if (driver.findElement(bannerBottomClose).isDisplayed()) {
 			driver.findElement(bannerBottomClose).click();
-
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			// check all filtered items for adding to the watchlist by clicking the star
 			for (int i=1; i<=rowCount.size(); i++) {
-				WebDriverWait wait3 = new WebDriverWait(driver, timeoutInSeconds);
-				wait3.until(ExpectedConditions.elementToBeClickable(By.xpath("//table[contains(@class, 'cmc-table')]/tbody/tr["+i+"]/td/span/span")));
-				driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//				WebDriverWait wait3 = new WebDriverWait(driver, timeoutInSeconds);
+//				wait3.until(ExpectedConditions.elementToBeClickable(By.xpath("//table[contains(@class, 'cmc-table')]/tbody/tr["+i+"]/td/span/span")));
 				driver.findElement(By.xpath("//table[contains(@class, 'cmc-table')]/tbody/tr["+i+"]/td/span/span")).click();
 				driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 			}
