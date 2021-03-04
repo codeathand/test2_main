@@ -229,7 +229,7 @@ public class Selectors {
 		Actions actions = new Actions(driver);
 		actions.moveToElement(driver.findElement(addToWatchList)).click().build().perform();
 //		driver.findElement(addToWatchList).click();
-		Thread.sleep(2000);
+		Thread.sleep(5000);
 
 		WebDriverWait wait1 = new WebDriverWait(driver, timeoutInSeconds);
 		wait1.until(ExpectedConditions.visibilityOfElementLocated(checkItOut));
