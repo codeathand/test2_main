@@ -158,7 +158,7 @@ public class Selectors {
 		JavascriptExecutor executor = (JavascriptExecutor) driver;
 		executor.executeScript("arguments[0].click();", driver.findElement(applyPrice));
 //		driver.findElement(applyPrice).click();
-//		Thread.sleep(2000);
+		Thread.sleep(2000);
 		// validate that filtered table has less than 10 rows
 		List<WebElement> rowCount = driver.findElements(table);
 		System.out.println("Num rows: " + rowCount.size());
