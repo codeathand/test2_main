@@ -16,7 +16,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class Selectors {
 	
 	/** Timeout for waiting element **/
-	int timeoutInSeconds = 5;
+	int timeoutInSeconds = 10;
 	
 	protected static WebDriver driver;
 	

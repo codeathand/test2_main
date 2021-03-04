@@ -19,7 +19,7 @@ pipeline {
                 echo "Testing"
                 dir ("test2_main") {
                     bat 'java -version'
-                    bat 'mvn test'
+                    bat 'mvn clean install'
                 }
             }
         }
