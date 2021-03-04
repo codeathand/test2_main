@@ -108,6 +108,7 @@ public class Selectors {
 			Assert.assertEquals(driver.findElement(allCryptocurrencies).getText(), "All Cryptocurrencies");
 		} catch (Exception exp) {
 			System.out.println(exp.getMessage());
+			System.out.println("ERROR");
 		}
 
 	}
