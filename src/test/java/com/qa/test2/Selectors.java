@@ -102,7 +102,10 @@ public class Selectors {
 	
 	/** validate that filter is set to Cryptocurrencies **/
 	public void validateFilterText() {
-		
+
+		WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(allCryptocurrencies));
+
 		// validate that All Cryptocurrencies is selected
 		Assert.assertEquals(driver.findElement(allCryptocurrencies).getText(), "All Cryptocurrencies");
 
