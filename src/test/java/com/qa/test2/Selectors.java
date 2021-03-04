@@ -24,7 +24,7 @@ public class Selectors {
 	
 	/** Locators **/
 	private By filtersButton = By.xpath("//*[@id=\"__next\"]/div/div[2]/div/div/div[1]/div[2]/div[3]/div[2]");
-	private By allCryptocurrencies = By.xpath("//*[@id=\"__next\"]/div/div[2]/div/div/div[2]/div/div[1]/div/span/div/button");
+	private By allCryptocurrencies = By.xpath("//*[@id=\"__next\"]/div/div[2]/div/div/div[2]/div/div[1]/div/span/div");
 	private By showRows = By.className("table-control-page-sizer");
 	private By table = By.xpath("//table[contains(@class, 'cmc-table')]/tbody/tr[not(contains(@class, 'fENxkl'))]");
 	
