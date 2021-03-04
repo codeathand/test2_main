@@ -187,9 +187,10 @@ public class Selectors {
 		// enter volume range and submit
 		driver.findElement(volumeFrom).sendKeys("1");
 		driver.findElement(volumeTo).sendKeys("45000");
+		Thread.sleep(2000);
 		WebDriverWait wait1 = new WebDriverWait(driver, timeoutInSeconds);
 		wait1.until(ExpectedConditions.elementToBeClickable(applyVolume));
-		Thread.sleep(2000);
+
 		driver.findElement(applyVolume).click();
 		Thread.sleep(2000);
 		// validate that filtered table has less than 5 rows
@@ -218,7 +219,7 @@ public class Selectors {
 		WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
 		wait.until(ExpectedConditions.elementToBeClickable(addToWatchList));
 		// when click on the star to add to watch list, check whether is modal window is displayed
-//		Thread.sleep(3000);
+
 		driver.findElement(addToWatchList).click();
 		Thread.sleep(2000);
 		WebDriverWait wait1 = new WebDriverWait(driver, timeoutInSeconds);
