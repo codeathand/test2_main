@@ -153,7 +153,7 @@ public class Selectors {
 		driver.findElement(priceTo).sendKeys("40000");
 		WebDriverWait wait1 = new WebDriverWait(driver, timeoutInSeconds);
 		wait1.until(ExpectedConditions.elementToBeClickable(applyPrice));
-		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		driver.findElement(applyPrice).click();
 		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 		// validate that filtered table has less than 10 rows
@@ -190,7 +190,7 @@ public class Selectors {
 		driver.findElement(volumeTo).sendKeys("45000");
 		WebDriverWait wait1 = new WebDriverWait(driver, timeoutInSeconds);
 		wait1.until(ExpectedConditions.elementToBeClickable(applyVolume));
-		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		driver.findElement(applyVolume).click();
 		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 		// validate that filtered table has less than 5 rows
@@ -219,7 +219,7 @@ public class Selectors {
 		WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(addToWatchList));
 		// when click on the star to add to watch list, check whether is modal window is displayed
-		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		driver.findElement(addToWatchList).click();
 		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 		WebDriverWait wait1 = new WebDriverWait(driver, timeoutInSeconds);
