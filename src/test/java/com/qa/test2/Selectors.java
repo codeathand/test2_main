@@ -87,7 +87,7 @@ public class Selectors {
 	
 	/** click on the Filters button **/
 	public void clickOnFilters() {
-		
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(filtersButton));
 		
