@@ -103,13 +103,7 @@ public class Selectors {
 	/** validate that filter is set to Cryptocurrencies **/
 	public void validateFilterText() {
 
-		try {
-			// validate that All Cryptocurrencies is selected
-			Assert.assertEquals(driver.findElement(allCryptocurrencies).getText(), "All Cryptocurrencies");
-		} catch (Exception exp) {
-			System.out.println(exp.getMessage());
-			System.out.println("ERROR");
-		}
+		Assert.assertEquals(driver.findElement(allCryptocurrencies).getText(), "All Cryptocurrencies");
 
 	}
 	
