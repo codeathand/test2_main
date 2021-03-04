@@ -33,7 +33,7 @@ public class Selectors {
 	private By email = By.xpath("//*[@id=\"__next\"]/main/form/div[2]/input");
 	private By password = By.xpath("//*[@id=\"__next\"]/main/form/div[5]/input");
 	private By submitCredentials = By.xpath("//*[@id=\"__next\"]/main/form/button");
-	private By price = By.xpath("//*[@id=\"__next\"]/div/div[2]/div/div/div[2]/div/div[3]/span/div/button");
+	private By price = By.xpath("//*[@id=\"__next\"]/div/div[2]/div/div/div[2]/div/div[3]/span/div");
 	private By priceFrom = By.xpath("/html/body/div/div/div[2]/div/div/div[2]/div/div[3]/div/div/div[1]/div/div/div/div[1]/input[1]");
 	private By priceTo = By.xpath("/html/body/div/div/div[2]/div/div/div[2]/div/div[3]/div/div/div[1]/div/div/div/div[1]/input[2]");
 	private By applyPrice = By.xpath("/html/body/div[1]/div/div[2]/div/div/div[2]/div/div[3]/div/div/div[1]/div/div/div/div[3]/div/button[2]");
