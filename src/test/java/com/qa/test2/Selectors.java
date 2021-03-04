@@ -1,12 +1,9 @@
 package com.qa.test2;
 
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -153,12 +150,10 @@ public class Selectors {
 		// enter price ranges and submit
 		driver.findElement(priceFrom).sendKeys("10000");
 		driver.findElement(priceTo).sendKeys("40000");
-
 		WebDriverWait wait1 = new WebDriverWait(driver, timeoutInSeconds);
 		wait1.until(ExpectedConditions.elementToBeClickable(applyPrice));
-		JavascriptExecutor executor = (JavascriptExecutor) driver;
-		executor.executeScript("arguments[0].click();", driver.findElement(applyPrice));
-//		driver.findElement(applyPrice).click();
+		Thread.sleep(2000);
+		driver.findElement(applyPrice).click();
 		Thread.sleep(2000);
 		// validate that filtered table has less than 10 rows
 		List<WebElement> rowCount = driver.findElements(table);
@@ -192,12 +187,10 @@ public class Selectors {
 		// enter volume range and submit
 		driver.findElement(volumeFrom).sendKeys("1");
 		driver.findElement(volumeTo).sendKeys("45000");
-
 		WebDriverWait wait1 = new WebDriverWait(driver, timeoutInSeconds);
 		wait1.until(ExpectedConditions.elementToBeClickable(applyVolume));
-		JavascriptExecutor executor = (JavascriptExecutor) driver;
-		executor.executeScript("arguments[0].click();", driver.findElement(applyVolume));
-//		driver.findElement(applyPrice).click();
+		Thread.sleep(2000);
+		driver.findElement(applyVolume).click();
 		Thread.sleep(2000);
 		// validate that filtered table has less than 5 rows
 		List<WebElement> rowCount = driver.findElements(table);
@@ -225,34 +218,28 @@ public class Selectors {
 		WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
 		wait.until(ExpectedConditions.elementToBeClickable(addToWatchList));
 		// when click on the star to add to watch list, check whether is modal window is displayed
-//		JavascriptExecutor executor = (JavascriptExecutor) driver;
-//		executor.executeScript("arguments[0].click();", driver.findElement(addToWatchList));
-		Actions actions = new Actions(driver);
-		actions.moveToElement(driver.findElement(addToWatchList)).click().build().perform();
-//		driver.findElement(addToWatchList).click();
 		Thread.sleep(2000);
-
-//		WebDriverWait wait1 = new WebDriverWait(driver, timeoutInSeconds);
-//		wait1.until(ExpectedConditions.elementToBeClickable(checkItOut));
+		driver.findElement(addToWatchList).click();
+		Thread.sleep(2000);
+		WebDriverWait wait1 = new WebDriverWait(driver, timeoutInSeconds);
+		wait1.until(ExpectedConditions.visibilityOfElementLocated(checkItOut));
 		
 		// if modal window is displayed, click on the button in the window
-//		if (driver.findElement(checkItOut).isDisplayed()) {
-//			driver.findElement(checkItOut).click();
-//			driver.findElement(addToWatchList).click();
-//		}
+		if (driver.findElement(checkItOut).isDisplayed()) {
+			driver.findElement(checkItOut).click();
+			driver.findElement(addToWatchList).click();
+		}
 
 		WebDriverWait wait2 = new WebDriverWait(driver, timeoutInSeconds);
 		wait2.until(ExpectedConditions.visibilityOfElementLocated(bannerBottomClose));
 
 		if (driver.findElement(bannerBottomClose).isDisplayed()) {
 			driver.findElement(bannerBottomClose).click();
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
 			// check all filtered items for adding to the watchlist by clicking the star
 			for (int i=1; i<=rowCount.size(); i++) {
-//				WebDriverWait wait3 = new WebDriverWait(driver, timeoutInSeconds);
-//				wait3.until(ExpectedConditions.elementToBeClickable(By.xpath("//table[contains(@class, 'cmc-table')]/tbody/tr["+i+"]/td/span/span")));
 				driver.findElement(By.xpath("//table[contains(@class, 'cmc-table')]/tbody/tr["+i+"]/td/span/span")).click();
-				driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+				Thread.sleep(2000);
 			}
 		}
 	}
