@@ -4,6 +4,7 @@ import org.testng.Assert;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -152,9 +153,9 @@ public class Selectors {
 		driver.findElement(priceTo).sendKeys("40000");
 		WebDriverWait wait1 = new WebDriverWait(driver, timeoutInSeconds);
 		wait1.until(ExpectedConditions.elementToBeClickable(applyPrice));
-		Thread.sleep(2000);
+		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 		driver.findElement(applyPrice).click();
-		Thread.sleep(2000);
+		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 		// validate that filtered table has less than 10 rows
 		List<WebElement> rowCount = driver.findElements(table);
 		System.out.println("Num rows: " + rowCount.size());
@@ -189,9 +190,9 @@ public class Selectors {
 		driver.findElement(volumeTo).sendKeys("45000");
 		WebDriverWait wait1 = new WebDriverWait(driver, timeoutInSeconds);
 		wait1.until(ExpectedConditions.elementToBeClickable(applyVolume));
-		Thread.sleep(2000);
+		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 		driver.findElement(applyVolume).click();
-		Thread.sleep(2000);
+		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 		// validate that filtered table has less than 5 rows
 		List<WebElement> rowCount = driver.findElements(table);
 		System.out.println("Num rows: " + rowCount.size());
@@ -218,9 +219,9 @@ public class Selectors {
 		WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(addToWatchList));
 		// when click on the star to add to watch list, check whether is modal window is displayed
-		Thread.sleep(2000);
+		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 		driver.findElement(addToWatchList).click();
-		Thread.sleep(2000);
+		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 		WebDriverWait wait1 = new WebDriverWait(driver, timeoutInSeconds);
 		wait1.until(ExpectedConditions.visibilityOfElementLocated(checkItOut));
 		
