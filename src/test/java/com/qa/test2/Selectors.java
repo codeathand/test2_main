@@ -235,10 +235,10 @@ public class Selectors {
 //		wait1.until(ExpectedConditions.elementToBeClickable(checkItOut));
 		
 		// if modal window is displayed, click on the button in the window
-		if (driver.findElement(checkItOut).isDisplayed()) {
-			driver.findElement(checkItOut).click();
-			driver.findElement(addToWatchList).click();
-		}
+//		if (driver.findElement(checkItOut).isDisplayed()) {
+//			driver.findElement(checkItOut).click();
+//			driver.findElement(addToWatchList).click();
+//		}
 
 		WebDriverWait wait2 = new WebDriverWait(driver, timeoutInSeconds);
 		wait2.until(ExpectedConditions.visibilityOfElementLocated(bannerBottomClose));
