@@ -4,7 +4,6 @@ import org.testng.Assert;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -24,7 +23,7 @@ public class Selectors {
 	List<String> watchlistItems = new ArrayList<String>();
 	
 	/** Locators **/
-	private By filtersButton = By.className("table-control-filter");
+	private By filtersButton = By.xpath("//*[@id=\"__next\"]/div/div[2]/div/div/div[1]/div[2]/div[3]/div[2]");
 	private By allCryptocurrencies = By.xpath("//*[@id=\"__next\"]/div/div[2]/div/div/div[2]/div/div[1]/div/span/div/button");
 	private By showRows = By.className("table-control-page-sizer");
 	private By table = By.xpath("//table[contains(@class, 'cmc-table')]/tbody/tr[not(contains(@class, 'fENxkl'))]");
@@ -44,7 +43,7 @@ public class Selectors {
 	private By applyVolume = By.xpath("/html/body/div[1]/div/div[2]/div/div/div[2]/div/div[5]/div/div/div[1]/div/div/div/div[3]/div/button[2]");
 	private By checkItOut = By.xpath("/html/body/div[3]/div/div[2]/button");
 	private By addToWatchList = By.xpath("//table[contains(@class, 'cmc-table')]/tbody/tr[1]/td/span/span");
-	private By watchlistLink = By.xpath("/html/body/div[1]/div/div[2]/div/div/div[1]/div[2]/a[1]/button/span[2]");
+	private By watchlistLink = By.xpath("//*[@id=\"__next\"]/div/div[2]/div/div/div[1]/div[2]/div[2]/div/a[1]");
 	private By watchlistLabel = By.xpath("//div[contains(text(), 'My First Watchlist')]");
 	private By watchlistTable = By.xpath("//table[contains(@class, 'cmc-table')]/tbody/tr");
 
@@ -87,7 +86,7 @@ public class Selectors {
 	
 	/** click on the Filters button **/
 	public void clickOnFilters() {
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
 		WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(filtersButton));
 		
@@ -153,9 +152,9 @@ public class Selectors {
 		driver.findElement(priceTo).sendKeys("40000");
 		WebDriverWait wait1 = new WebDriverWait(driver, timeoutInSeconds);
 		wait1.until(ExpectedConditions.elementToBeClickable(applyPrice));
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		Thread.sleep(2000);
 		driver.findElement(applyPrice).click();
-		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+		Thread.sleep(2000);
 		// validate that filtered table has less than 10 rows
 		List<WebElement> rowCount = driver.findElements(table);
 		System.out.println("Num rows: " + rowCount.size());
@@ -190,9 +189,9 @@ public class Selectors {
 		driver.findElement(volumeTo).sendKeys("45000");
 		WebDriverWait wait1 = new WebDriverWait(driver, timeoutInSeconds);
 		wait1.until(ExpectedConditions.elementToBeClickable(applyVolume));
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		Thread.sleep(2000);
 		driver.findElement(applyVolume).click();
-		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+		Thread.sleep(2000);
 		// validate that filtered table has less than 5 rows
 		List<WebElement> rowCount = driver.findElements(table);
 		System.out.println("Num rows: " + rowCount.size());
@@ -217,11 +216,11 @@ public class Selectors {
 		System.out.println(watchlistItems);
 
 		WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(addToWatchList));
+		wait.until(ExpectedConditions.elementToBeClickable(addToWatchList));
 		// when click on the star to add to watch list, check whether is modal window is displayed
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		Thread.sleep(2000);
 		driver.findElement(addToWatchList).click();
-		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+		Thread.sleep(2000);
 		WebDriverWait wait1 = new WebDriverWait(driver, timeoutInSeconds);
 		wait1.until(ExpectedConditions.visibilityOfElementLocated(checkItOut));
 		
@@ -254,7 +253,7 @@ public class Selectors {
 		WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(watchlistLink));
 		driver.findElement(watchlistLink).click();
-		
+
 		// wait for the Wathlist page to be displayed
 		WebDriverWait wait1 = new WebDriverWait(driver, timeoutInSeconds);
 		wait1.until(ExpectedConditions.visibilityOfElementLocated(watchlistLabel));
