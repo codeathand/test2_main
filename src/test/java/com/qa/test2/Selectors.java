@@ -1,5 +1,6 @@
 package com.qa.test2;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 
 import java.util.ArrayList;
@@ -153,9 +154,10 @@ public class Selectors {
 
 		WebDriverWait wait1 = new WebDriverWait(driver, timeoutInSeconds);
 		wait1.until(ExpectedConditions.elementToBeClickable(applyPrice));
-		Thread.sleep(2000);
-		driver.findElement(applyPrice).click();
-		Thread.sleep(2000);
+		JavascriptExecutor executor = (JavascriptExecutor) driver;
+		executor.executeScript("arguments[0].click();", applyPrice);
+//		driver.findElement(applyPrice).click();
+//		Thread.sleep(2000);
 		// validate that filtered table has less than 10 rows
 		List<WebElement> rowCount = driver.findElements(table);
 		System.out.println("Num rows: " + rowCount.size());
@@ -191,9 +193,10 @@ public class Selectors {
 
 		WebDriverWait wait1 = new WebDriverWait(driver, timeoutInSeconds);
 		wait1.until(ExpectedConditions.elementToBeClickable(applyVolume));
-		Thread.sleep(2000);
-		driver.findElement(applyVolume).click();
-		Thread.sleep(2000);
+		JavascriptExecutor executor = (JavascriptExecutor) driver;
+		executor.executeScript("arguments[0].click();", applyVolume);
+//		driver.findElement(applyPrice).click();
+//		Thread.sleep(2000);
 		// validate that filtered table has less than 5 rows
 		List<WebElement> rowCount = driver.findElements(table);
 		System.out.println("Num rows: " + rowCount.size());
@@ -220,9 +223,11 @@ public class Selectors {
 		WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
 		wait.until(ExpectedConditions.elementToBeClickable(addToWatchList));
 		// when click on the star to add to watch list, check whether is modal window is displayed
-		Thread.sleep(2000);
-		driver.findElement(addToWatchList).click();
-		Thread.sleep(2000);
+		JavascriptExecutor executor = (JavascriptExecutor) driver;
+		executor.executeScript("arguments[0].click();", addToWatchList);
+//		driver.findElement(addToWatchList).click();
+//		Thread.sleep(2000);
+
 		WebDriverWait wait1 = new WebDriverWait(driver, timeoutInSeconds);
 		wait1.until(ExpectedConditions.visibilityOfElementLocated(checkItOut));
 		
