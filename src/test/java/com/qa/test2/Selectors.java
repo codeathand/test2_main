@@ -196,7 +196,7 @@ public class Selectors {
 		JavascriptExecutor executor = (JavascriptExecutor) driver;
 		executor.executeScript("arguments[0].click();", driver.findElement(applyVolume));
 //		driver.findElement(applyPrice).click();
-//		Thread.sleep(2000);
+		Thread.sleep(2000);
 		// validate that filtered table has less than 5 rows
 		List<WebElement> rowCount = driver.findElements(table);
 		System.out.println("Num rows: " + rowCount.size());
@@ -223,10 +223,10 @@ public class Selectors {
 		WebDriverWait wait = new WebDriverWait(driver, timeoutInSeconds);
 		wait.until(ExpectedConditions.elementToBeClickable(addToWatchList));
 		// when click on the star to add to watch list, check whether is modal window is displayed
-		JavascriptExecutor executor = (JavascriptExecutor) driver;
-		executor.executeScript("arguments[0].click();", driver.findElement(addToWatchList));
-//		driver.findElement(addToWatchList).click();
-//		Thread.sleep(2000);
+//		JavascriptExecutor executor = (JavascriptExecutor) driver;
+//		executor.executeScript("arguments[0].click();", driver.findElement(addToWatchList));
+		driver.findElement(addToWatchList).click();
+		Thread.sleep(2000);
 
 		WebDriverWait wait1 = new WebDriverWait(driver, timeoutInSeconds);
 		wait1.until(ExpectedConditions.visibilityOfElementLocated(checkItOut));
